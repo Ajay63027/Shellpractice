@@ -1,0 +1,7 @@
+!#/bin/bash
+
+name1=$value1
+name2=$value2
+
+echo "$name1 ::Hi, How are you?"
+echo "$name2 ::Hi Bro,i am good, what about you?"
