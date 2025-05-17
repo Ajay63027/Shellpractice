@@ -2,4 +2,4 @@
 
 movies=("RRR" "HIT3" "PUSHPA" "SINGLES")
 
-echo "all movies names ${movies[0]}"
+echo "all movies names ${movies[@]}"
