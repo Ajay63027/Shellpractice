@@ -1,7 +1,0 @@
-!#/bin/bash
-
-$1=value1
-$2=value2
-
-echo "$value1 ::Hi, How are you?"
-echo "$value2 ::Hi Bro,i am good, what about you?"
