@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ uid -eq 0 ]
+if [ uid: -eq 0 ]
 then
   echo "user have permisions to install"
   dnf install mysql 
