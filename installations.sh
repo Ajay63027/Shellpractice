@@ -1,10 +1,31 @@
 #!/bin/bash
 uid=$(id -u)
 
-if [ $uid -eq 0 ]
+if [ $uid -ne 0 ]
 then
-  echo "user have permisions to install"
-  dnf install mysql 
+  echo "ERROR:: user have permisions to install"
+  exit 1
 else
-  echo "user does'nt have permissions to install"
+  echo "user  have permissions to install"
 fi
+dnf list installed mysql
+
+if [ $?-ne 0]
+then 
+echo "mysql not installed "
+dnf instal mysql -y 
+  if [ $? -eq 0 ]
+  then
+    echo "mysql installed successfully"
+  else 
+    echo "mysql installed failed"
+else 
+echo "mysql is laready installed"
+fi
+# dnf instal mysql -y 
+# if [ $? -eq 0 ]
+# then
+#  echo "mysql installed successfully"
+# else 
+#   echo "mysql installed failed"
+# fi
