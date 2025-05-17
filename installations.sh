@@ -19,8 +19,9 @@ dnf instal mysql -y
     echo "mysql installed successfully"
   else 
     echo "mysql installed failed"
+  fi
 else 
-echo "mysql is laready installed"
+    echo "mysql is already installed"
 fi
 # dnf instal mysql -y 
 # if [ $? -eq 0 ]
