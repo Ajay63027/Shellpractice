@@ -40,7 +40,7 @@ do
 then 
 echo -e "$package $R not installed  $N"  | tee -a $logfile
 dnf install $package -y  &>>logfile
-  VALIDATE $? "$package" &>>logfile
+  VALIDATE $? "$package" | tee -a $logfile
 else 
     echo -e "$package is $Y already installed $N"  | tee -a $logfile
 fi
