@@ -1,6 +1,83 @@
-3!/bin/bash
+#!/bin/bash
+uid=$(id -u)
 
-for i in {1..100}
-do
-echo $i
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+logfolder="/var/log/shell_scriptlogs"
+script_name=$(echo $0 | cut -d "." -f1)
+logfile="$logfolder/$script_name.log"
+
+packages=("nginx" "python3" "mysql" "httpd")
+
+
+mkdir -p $logfolder
+
+echo "script starting at $(date)" | tee -a $logfile
+
+if [ $uid -ne 0 ]
+then
+  echo "ERROR:: user have permisions to install" &>>$logfile
+  exit 1
+else
+  echo "user  have permissions to install" &>>$logfile
+fi
+
+VALIDATE(){
+    if [ $1 -eq 0 ]
+  then
+    echo -e "$2 installed  $G successfully $N"  | tee -a $logfile
+  else 
+    echo -e "$2 installed $R failed $N"  | tee -a $logfile
+  fi
+
+}
+for package in ${packages[@]}
+do 
+ dnf list installed $package &>>$logfile
+ if [ $? -ne 0 ]
+then 
+echo -e "$package $R not installed  $N"  | tee -a $logfile
+dnf install $package -y  &>>logfile
+  VALIDATE $? "$package" &>>logfile
+else 
+    echo -e "$package is $Y already installed $N"  | tee -a $logfile
+fi
+
 done
+# dnf list installed mysql &>>$logfile
+
+# if [ $? -ne 0 ]
+# then 
+# echo -e "mysql $R not installed  $N"  | tee -a $logfile
+# dnf install mysql -y  &>>logfile
+#   VALIDATE $? "mysql" &>>logfile
+# else 
+#     echo -e "mysql is $Y already installed $N"  | tee -a $logfile
+# fi
+ 
+
+# dnf list installed python3 &>>$logfile
+
+# if [ $? -ne 0 ]
+# then 
+# echo -e  "pythin3 $R not installed $N"  | tee -a $logfile
+# dnf install python3 -y  &>>$logfile
+# VALIDATE $? "python3" &>>$logfile
+  
+# else 
+#     echo -e "python3 is $Y already installed $N"  | tee -a $logfile
+# fi
+
+
+# dnf list installed nginx &>>$logfile
+
+# if [ $? -ne 0 ]
+# then 
+# echo -e  "nginx $R not installed $N"  | tee -a $logfile
+# dnf install nginx -y &>>$logfile
+#   VALIDATE $? "nginx" &>>$logfile
+# else 
+#     echo -e "nginx is $Y  already installed $N"  | tee -a $logfile
+# fi
