@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 name1=Ajay
 name2=Sri
