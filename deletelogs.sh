@@ -19,6 +19,7 @@ then
   exit 1
 else
   echo "user  have permissions to install" | tee -a $logfile
+fi
 
 VALIDATE(){
     if [ $1 -eq 0 ]
@@ -30,7 +31,7 @@ VALIDATE(){
 }
     
 
-files_old= $(find $source_path -name "*.log" -mtime "+14")
+files_old=$(find $source_path -name "*.log" -mtime "+14")
 
 
 while IFS= read -r file
