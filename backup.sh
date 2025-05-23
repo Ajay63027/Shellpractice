@@ -51,16 +51,17 @@ if [ ! -z "$files" ]
     echo "$files" | zip -@ $ZIPFILE
    if [ -f $ZIPFILE ]
    then 
-   echo "zip file created successfully"
-    while IFS= read -r file
-    do
-    rm -rf "$file"
-    done <<< "$files"
-      echo "success"
-   else 
+       echo "zip file created successfully"
+       while IFS= read -r file
+        do
+        rm -rf "$file"
+        done <<< "$files"
+        echo "success"
+    else 
    echo "zip file not created"
    exit 1
- else 
+   fi
+else 
  echo " no files found older than 14 days "
 fi 
 
