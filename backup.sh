@@ -31,6 +31,13 @@ USAGE(){
 if [ $# -lt 2 ]
   then
       USAGE
-
 fi 
-
+ if [ ! -d $source_dir ]
+  then 
+  echo " souce dir does not exist"
+ fi 
+ if [ ! -d $dest_dir ]
+  then 
+  echo " destination dir does not exist"
+ fi 
+ 
