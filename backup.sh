@@ -40,4 +40,13 @@ fi
   then 
   echo " destination dir does not exist"
  fi 
- 
+  
+ files=$(find $source_path -name "*.log" -mtime "$days")
+
+if [ ! -z $files  ]
+ then
+ echo " files to zip are : $files"
+ else 
+ echo " no files found older than 14 days "
+fi 
+
