@@ -41,7 +41,7 @@ fi
   echo " destination dir does not exist"
  fi 
   
- files=$(find $source_path -name "*.log" -mtime +$days)
+ files=$(find $source_dir -name "*.log" -mtime +$days)
 
 if [ ! -z $files  ]
  then
