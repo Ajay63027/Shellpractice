@@ -3,7 +3,7 @@
 uid=$(id -u)
 source_dir=$1
 dest_dir=$2
-days=${$3:-14}
+days=${3:-14}
 
 R="\e[31m"
 G="\e[32m"
