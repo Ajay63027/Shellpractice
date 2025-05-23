@@ -15,11 +15,10 @@ mkdir -p $logfolder
 
 if [ $uid -ne 0 ]
 then
-  echo "ERROR:: user have permisions to install" &>>$logfile
+  echo "ERROR:: user have permisions to install" | tee -a $logfile
   exit 1
 else
-  echo "user  have permissions to install" &>>$logfile
-fi
+  echo "user  have permissions to install" | tee -a $logfile
 
 VALIDATE(){
     if [ $1 -eq 0 ]
