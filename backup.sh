@@ -43,7 +43,7 @@ fi
   
  files=$(find $source_dir -name "*.log" -mtime +$days)
 
-if [ ! -z $files  ]
+if [ | -z $files  ]
  then
  echo " files to zip are : $files"
  else 
