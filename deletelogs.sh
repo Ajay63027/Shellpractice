@@ -11,6 +11,7 @@ script_name=$(echo $0 | cut -d "." -f1)
 logfile="$logfolder/$script_name.log"
 source_path=/home/ec2-user/app-logs
 
+mkdir -p $logfolder
 
 if [ $uid -ne 0 ]
 then
@@ -29,7 +30,6 @@ VALIDATE(){
   fi
 }
     
-mkdir -p $logfolder
 
 files_old= $(find $source_path -name "*.log" -mtime "+14")
 
