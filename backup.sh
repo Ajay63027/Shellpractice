@@ -47,7 +47,7 @@ if [ ! -z "$files" ]
  then
  echo " files to zip are : $files"
     TIMESTAMP=$(date +%F-%H-%M-%S)
-    ZIPFILE=$dest_dir/app-logs-$TIMESTAMP.zip
+    ZIPFILE="$dest_dir/app-logs-$TIMESTAMP.zip"
     echo file | zip -@ $ZIPFILE
  else 
  echo " no files found older than 14 days "
