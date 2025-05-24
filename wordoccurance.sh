@@ -6,5 +6,5 @@ for word in $(cat $filename)
  echo $word
  done 
 
- wordcount='grep -o $word $file | wc-l'
+ wordcount=(grep -o $word $file | wc-l)
  echo $wordcount
