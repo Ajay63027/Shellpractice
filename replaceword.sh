@@ -1,9 +1,13 @@
 #!/bin/bash
-word=$1
-word=$2
-file=$3
-dir=$4
 
-for file in $dir;do
-sed -i 's/word1/word2/g' "$file"
+search=$1      # Word to find
+replace=$2     # Word to replace it with
+dir=$3         # Directory path
+
+# Loop through all .txt files in the directory (modify pattern as needed)
+for file in "$dir"/*.txt; do
+  if [ -f "$file" ]; then
+    sed -i "s/${search}/${replace}/g" "$file"
+    echo "Updated $file"
+  fi
 done
