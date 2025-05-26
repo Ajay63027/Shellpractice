@@ -5,7 +5,7 @@ threshold=1
 
 while IFS= read -r line
 do
- USAGE=$(echo $diskusage | awk '{print $6F}'|cut -d '%' -f1)
- Partision=$(echo $diskusage | awk '{print $7F}')
+ USAGE=$(echo "$diskusage | awk '{print $6F}'|cut -d '%' -f1")
+ Partision=$(echo "$diskusage | awk '{print $7F}'")
  echo "diskusage :: $USAGE filename :: $partision"
 done <<< $diskusage
