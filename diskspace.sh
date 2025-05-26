@@ -15,4 +15,4 @@ do
 done <<< $diskusage
 echo -e "$MSG"
 
-sh mail.sh DevOpsTeam  High_Diskspace $IP $MSG ajaymanthurthi6@gmail.com High_Disk_usage
+sh mail.sh DevOpsTeam  High_Diskspace "$IP" "$MSG" ajaymanthurthi6@gmail.com High_Disk_usage
