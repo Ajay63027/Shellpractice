@@ -1,9 +1,7 @@
 #!/bin/usr
 
-diskusage=$(df -hT | grep -v Filesystem|awk '{print $6F}'|cut -d '%' -f1) 
-filename=$(df -hT | grep -v Filesystem|awk '{print $7F}')
-
-echo "filename: $filename diskusage:$diskusage"
+diskusage=$(df -hT | grep -v Filesystem) 
+threshold=1
 
 while IFS= read -r line
 do
