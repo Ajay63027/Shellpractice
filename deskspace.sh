@@ -6,6 +6,8 @@ threshold=1
 while IFS= read line
 do
  USAGE=$(echo $line | awk '{print $6F}'|cut -d '%' -f1)
- Partision=$(echo $line | awk '{print $7F}')
- echo "$Partision :$USAGE"
+ Partision=$(echo $line | awk '{print $7F}') 
+  if [ $USAGE -ge $threshold ] then
+     echo " High disk usage: $Partision :$USAGE"
+  fi
 done <<< $diskusage
