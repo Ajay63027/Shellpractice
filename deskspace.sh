@@ -9,6 +9,7 @@ do
  Partision=$(echo $line | awk '{print $7F}') 
   if [ $USAGE -ge $threshold ] 
   then
-      echo "High disk usage: $Partision :$USAGE"
+      MSG+="High disk usage: $Partision :$USAGE"
   fi
 done <<< $diskusage
+echo "$MSG"
